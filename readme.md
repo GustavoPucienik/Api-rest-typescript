@@ -36,7 +36,30 @@ Esta API RESTful permite a criação, leitura, atualização e exclusão (CRUD) 
   - **utils/**: Funções utilitárias usadas em várias partes do projeto.
 - **tsconfig.json**: Configurações do TypeScript.
 
-## Rodar a api localmente
+## Rotas da API
+
+A API possui as seguintes rotas para gerenciar produtos:
+
+- **GET "/**": Lista todos os produtos.
+  - **Descrição**: Retorna uma lista com todos os produtos cadastrados.
+
+- **GET "/filtro**": Busca produtos com base em um campo genérico.
+  - **Descrição**: Permite buscar produtos utilizando um filtro genérico.
+
+- **POST "/**": Cria um novo produto.
+  - **Descrição**: Adiciona um novo produto à base de dados. O corpo da requisição deve ser validado pelo middleware `validarBodyProduto`.
+  - **Middleware**: `validarBodyProduto`
+
+- **PUT "/:id**": Atualiza um produto existente.
+  - **Descrição**: Atualiza as informações de um produto específico. O ID do produto deve ser validado pelo middleware `verificaIdMiddleware`.
+  - **Middleware**: `verificaIdMiddleware`
+
+- **DELETE "/:id**": Remove um produto existente.
+  - **Descrição**: Remove um produto específico da base de dados. O ID do produto deve ser validado pelo middleware `verificaIdMiddleware`.
+  - **Middleware**: `verificaIdMiddleware`
+
+
+## Rodar a API localmente
 1. Clone o repositório:
    ```bash
    git clone https://github.com/usuario/api-crud-produto.git
